@@ -1,12 +1,26 @@
-let nombre = prompt("Ingrese su nombre: ");
-let apellido = prompt("Ingrese sus apellido: ");
-let edad = prompt("Ingres su edad : ");
-let saludo = "Hola" + " " + nombre;
+let numero;
+let mayor = 0;
+let posicion = 0;
+let posicionMayor = 0;
+let salir = "ESC";
+let cantidad = prompt("Ingrese cantidad de numeros a ingresar");
 
-let numero1 = prompt("Ingrese un numero : ");
-let numero2 = prompt("Ingrese otro numero : ");
-let suma = parseInt(numero1) + parseInt(numero2);
+do {
+  let numero = prompt(
+    "Ingrese numeros (Intentos disponibles : " + cantidad + ")"
+  );
+  if (numero > mayor) {
+    mayor = numero;
+    posicionMayor = posicion;
+  }
+  cantidad--;
+  posicion++;
+} while (cantidad > 0);
 
-let calculo = "La suma de sus numero fue:" + suma;
-alert(saludo);
-alert(calculo);
+if (posicionMayor != 0) {
+  prompt(
+    "El mayor numero fue " + mayor + " " + "en la posicion " + posicionMayor
+  );
+} else {
+  prompt("Datos invalidos");
+}
